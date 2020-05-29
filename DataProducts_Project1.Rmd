@@ -1,0 +1,19 @@
+---
+title: "My Leaflet Project Map"
+author: "Daniel Baquero"
+date: "29/5/2020"
+output: html_document
+---
+
+## The Map!  
+  This map have some key places for my in the city I live, Quito, Ecuador.  
+  
+```{r map}
+suppressPackageStartupMessages(library(leaflet))
+suppressPackageStartupMessages(library(dplyr))
+df <- data.frame(lat = c(-0.124582,-0.196649,-0.182915,0),
+                 lng = c(-78.359390,-78.435606,-78.484492,-78.456115))
+names <- c("Airport", "USFQ", "La Carolina", "The Middle of the World")
+
+df %>% leaflet() %>% addTiles() %>% addMarkers(popup = names)
+```
